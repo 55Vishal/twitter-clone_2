@@ -53,6 +53,14 @@
 
 }
 .textcontaint{
+  font-size:x-large;
+   font-weight: bold;
     padding: 1rem;
     color: black;
+}
+
+.follow{
+  display: flex;
+gap: 2vw;
+margin-top: 3vh;
 }
