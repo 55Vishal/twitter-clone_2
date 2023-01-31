@@ -17,7 +17,7 @@
   .feed__header h2 {
     font-size: 1.25rem;
     font-weight: 50rem;
-    color:white;
+    color:black;
   }
  
   .innercontainer h2:hover{
@@ -45,10 +45,10 @@
     height: 2.25rem;
     border-radius: 25px;
   font-size: 1rem;
-  border: 1rem ;
-  background:none;
-  color: white;
-  border: 1px white solid;
+  border: 1px solid black;
+  border-radius: 20px;
+  color: black;
+  font-weight: bold;
   
 
 }
@@ -57,6 +57,16 @@
    font-weight: bold;
     padding: 1rem;
     color: black;
+}
+
+.textcontaint >p{
+  font-size: 1rem;
+  margin-top: 1vh;
+  
+}
+.textcontaint >p>span{
+margin-left: 0.5vw;
+  
 }
 
 .follow{

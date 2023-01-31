@@ -5,6 +5,8 @@ import WestIcon from "@mui/icons-material/West";
 import CustomButton from "../../../Atom/Button/CustomButton";
 import { useNavigate } from "react-router-dom";
 import RightContainer2 from "../../rightContainer/RightContainer2/RightContainer2"
+import { GoLocation } from "react-icons/go";
+import { FaBirthdayCake } from "react-icons/fa";
 
 function ProfileSection() {
    const nevigate = useNavigate();
@@ -16,7 +18,7 @@ function ProfileSection() {
     <>
     <div className={style.wrapper}>
       <div className={style.feed__header}>
-        <p onClick={()=> nevigate("/") }><WestIcon /></p>
+        <p onClick={()=> nevigate("/home") }><WestIcon /></p>
         <h2>{Data.Name}</h2>
       </div>
         <img className={style.container} src="https://cdn.pixabay.com/photo/2018/08/14/13/23/ocean-3605547__480.jpg" />
@@ -32,6 +34,7 @@ function ProfileSection() {
       <div className={style.textcontaint}>
         <h4>{`${"Name:-"}${Data.Name}`}</h4>
         <h5>{`${"@"}${Data.Name}`}</h5>
+        <p><GoLocation />India <span><FaBirthdayCake />{Data.Date} {Data.Month} {Data.Year}</span></p>
       <div className={style.follow}>
         <h5>Followers :- 2000</h5>
         <h5>Following :- 154</h5>

@@ -1,8 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import { FaTwitter } from "react-icons/fa";
-import { FaHouseUser, FaHashtag, FaNotification } from "react-icons/fa";
-import { GrNotification } from "react-icons/gr";
+import { FaHouseUser, FaHashtag } from "react-icons/fa";
 import { BsBookmark, BsPerson } from "react-icons/bs";
 import { HiOutlineMail } from "react-icons/hi";
 import { TbFileText } from "react-icons/tb";
@@ -22,7 +21,7 @@ function LeftSec() {
   const nevigate = useNavigate();
   let Data = JSON.parse(localStorage.getItem("user0"));
   const menu = [
-    { id: 1, icon: <FaHouseUser />, Name: <p onClick={()=> nevigate("/") }>Home</p> },
+    { id: 1, icon: <FaHouseUser />, Name: <p onClick={()=> nevigate("/home") }>Home</p> },
     { id: 2, icon: <FaHashtag />, Name: "Explore" },
     { id: 3, icon: <VscBellDot />, Name: "Notifications" },
     { id: 4, icon: <HiOutlineMail />, Name: "Message" },
@@ -44,6 +43,7 @@ function LeftSec() {
   };
   const handleClickClose = () => {
     setOpen(false);
+    
   };
 
   return (
@@ -53,7 +53,7 @@ function LeftSec() {
           <div className={style.innerContainer2}>
             <div className={style.logo}>
              
-              <p onClick={()=> nevigate("/") }> <FaTwitter /></p>
+              <p onClick={()=> nevigate("/home") }> <FaTwitter /></p>
             </div>
 
             {menu.map((menu) => {

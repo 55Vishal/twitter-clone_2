@@ -4,11 +4,12 @@ import style from "./Dialog.module.css";
 import React from "react";
 import { useSetRecoilState } from "recoil";
 import { isLoginAtom } from "../../Recoil/Atom1/Atom";
+import { useNavigate } from "react-router-dom";
 
 
 function DialogBox(props) {
   
-
+  const nevigate=useNavigate()
   const setLoginStatus = useSetRecoilState(isLoginAtom);
   const { onClose, selectedValue, open } = props;
   const handleClose = () => {
@@ -19,6 +20,8 @@ function DialogBox(props) {
       if(window.confirm (text) == true){
           setLoginStatus(false);
     alert("successfully Logout");
+    nevigate("/")
+
       } else {
         text = " Cancel"
       }

@@ -3,7 +3,7 @@ export function isValidString(value) {
 
   if (typeof value === "string" && value.trim().length === 0) return false;
 
-  if (typeof value === Number) return alert("hjejtel");
+  if (typeof value === Number) return alert("Error");
   if (/[0-9]/.test(value)) return false;
 
   return true;

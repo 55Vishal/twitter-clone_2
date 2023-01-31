@@ -18,7 +18,7 @@ function ProfileSection() {
   return (
     <div className={style.wrapper}>
       <div className={style.feed__header}>
-        <p onClick={()=> nevigate("/") }><WestIcon /></p>
+        <p onClick={()=> nevigate("/home") }><WestIcon /></p>
         <h2>{unknownProfileData.Name}</h2>
       </div>
         <img className={style.container} src={unknownProfileData.tweetPic} />

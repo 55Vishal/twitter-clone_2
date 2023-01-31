@@ -66,7 +66,7 @@ function Login() {
       setLoginStatus(true);
       alert("succesfully login");
       
-      nevigate("/");
+      nevigate("/home");
     } else {
       alert("false");
     }
@@ -85,6 +85,7 @@ function Login() {
                   <Input
                     className={style.input2}
                     placeholder="passsword"
+                    type="password"
                     handleOnchange={passWordChangeValue}
                   />
                 </div>

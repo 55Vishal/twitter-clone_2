@@ -72,7 +72,6 @@ function Register() {
       Phone: phone,
       Email: email,
       password: password,
-
       Month: month,
       Year: day,
       Date: date,
@@ -146,8 +145,8 @@ function Register() {
     }
 
     if (flag == 1 && flagForLs == 0) {
-      localStorage.setItem("user" + incl, JSON.stringify(Data));
-      setIncl(incl + 1);
+      localStorage.setItem("user", JSON.stringify(Data));
+     
       alert("USER Sucessfully Registered");
       setLoginStatus(true);
       // window.location.assign("/");
@@ -168,6 +167,7 @@ function Register() {
                   <Input
                     className={style.input1}
                     placeholder="Name"
+                    type="text"
                     handleOnchange={handleName}
                   />
 
@@ -178,6 +178,7 @@ function Register() {
                         <Input
                           className={style.input2}
                           placeholder="Phone"
+                          type="number"
                           handleOnchange={handleMobile}
                         />
                         <span style={{ color: "red" }}>{phoneError}</span>
@@ -187,6 +188,7 @@ function Register() {
                         <Input
                           className={style.input2}
                           placeholder="email"
+                          type="email"
                           handleOnchange={handleEmail}
                         />
                         <span style={{ color: "red" }}>{emailError}</span>
@@ -203,6 +205,7 @@ function Register() {
                       <Input
                         className={style.input2}
                         placeholder="Password"
+                        type="password"
                         handleOnchange={handlePassword}
                       />
                       <span style={{ color: "red" }}>{passwordError}</span>

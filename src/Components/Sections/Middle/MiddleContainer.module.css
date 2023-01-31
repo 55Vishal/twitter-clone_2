@@ -1,7 +1,8 @@
 .navbarContainer{
     position: fixed;
 /*  */
-width: 39.3vw
+width: 39.3vw;
+border-bottom: 10 px solid lightgray;
 }
 .twitterPostContainer{
     margin-top: 7.2rem;

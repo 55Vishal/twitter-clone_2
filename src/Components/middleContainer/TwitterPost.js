@@ -40,9 +40,10 @@ function  fetchData()
   }
 
   function handleLike() {
-    setLikesCount(likesCount + 1);
+    setLikesCount(likesCount ? likesCount-1 : likesCount+1 );
+    
   }
-
+ 
   function handleUserProfile() {
     //setNewProfile()
     alert("kkkk")
@@ -101,7 +102,7 @@ function  fetchData()
             <div className={style.img}>
               <img
                 style={{ width: "30rem", height: "30rem",borderRadius:"15px" }}
-                alt="picture"
+                alt="Picture"
                 src={data.tweetPic}
               />
             </div>
@@ -116,7 +117,11 @@ function  fetchData()
                   </span>
                   <span>
                     {data.likesCount}{likesCount}
-                    <FavoriteBorderIcon />
+                    <FavoriteBorderIcon  onClick={handleLike}
+                      // {
+                      //   ...likesCount ? (setLikesCount(likesCount+1)) : (setLikesCount(likesCount-1))
+                      // }
+                    />
                   </span>
                   <span>
                     {data.viewsCount}
