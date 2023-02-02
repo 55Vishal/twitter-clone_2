@@ -10,7 +10,6 @@ import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
 import PollIcon from "@mui/icons-material/Poll";
 import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
-
 import { useState,useEffect } from "react";
 import { useRecoilState } from "recoil";
 import { isTweetPost ,userProfile} from "../../Recoil/Atom1/Atom";
@@ -34,11 +33,7 @@ function  fetchData()
     setPost(tweetPosts)
   }
  
-  function  fetchData()
-  {
-    setPost(tweetPosts)
-  }
-
+ 
   function handleLike() {
     setLikesCount(likesCount ? likesCount-1 : likesCount+1 );
     
@@ -51,14 +46,9 @@ function  fetchData()
   
  function xyz (dataName)  {
     console.log(dataName);
-   //console.log(dataPic);
     setNewProfile(dataName)
     nevigate("/Profile2")
-    
-    
-    
-   
-  };
+    };
  
 
   return (
@@ -118,9 +108,6 @@ function  fetchData()
                   <span>
                     {data.likesCount}{likesCount}
                     <FavoriteBorderIcon  onClick={handleLike}
-                      // {
-                      //   ...likesCount ? (setLikesCount(likesCount+1)) : (setLikesCount(likesCount-1))
-                      // }
                     />
                   </span>
                   <span>

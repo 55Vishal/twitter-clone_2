@@ -18,6 +18,7 @@ function Login() {
   const [localstorageKey, setLocalstorageKey] = useState();
   const [loginError, setLoginError] = useState("");
   const setLoginStatus = useSetRecoilState(isLoginAtom);
+
   function loginValue(inputLogin) {
     setLoginV(inputLogin);
   }
@@ -33,7 +34,7 @@ function Login() {
     } else {
       flag = 0;
     }
-
+     
     let flagForLs = 0;
     for (var i = 0; i < localStorage.length; i++) {
       let k = JSON.parse(localStorage.getItem("user" + i));

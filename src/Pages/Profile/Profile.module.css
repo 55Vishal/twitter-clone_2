@@ -3,13 +3,16 @@
     display: flex;
 }
 .container{
-    width: 26%;
-    height: 100%;
+    width: 26vw;
+    height: 100vh;
    
 }
 
 .middleContainer{
     width: 40%;
+    border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+    height: 100vh;
 }
 .rightContainer{
     width:34%;

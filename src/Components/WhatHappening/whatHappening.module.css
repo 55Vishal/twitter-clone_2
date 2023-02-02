@@ -11,8 +11,8 @@
 }
 .parentContainer{
   background-color: white;
-  height: fit-content;
-  z-index: -1;
+  /* height: fit-content; */
+  /* z-index: -1; */
 
 }
 .main {

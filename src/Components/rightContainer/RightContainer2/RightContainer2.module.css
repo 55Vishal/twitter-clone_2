@@ -49,3 +49,20 @@
   
 
 }
+.color{
+    color: rgb(66, 66, 236);
+    margin-left: 1rem;
+    margin-top: 1rem;
+}
+.ShowMoreText {
+    color: rgb(45, 45, 247);
+    margin-top: 1rem;
+    font-size: medium;
+    width:6rem;
+    border-radius: 3rem;
+    padding: 0.2rem;;
+
+  }
+  .ShowMoreText:hover{
+    background: #e6ecf0;
+  }
