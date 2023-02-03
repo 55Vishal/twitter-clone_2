@@ -6,7 +6,7 @@ import { Avatar } from "@mui/material";
 import { tweetPosts } from "../../ConstData/ConstData";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import SyncIcon from "@mui/icons-material/Sync";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { AiFillHeart} from 'react-icons/ai';
 import PollIcon from "@mui/icons-material/Poll";
 import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
@@ -20,9 +20,9 @@ export default function TwitterPost() {
   const[post,setPost]=useState(tweetPosts)
   const nevigate = useNavigate();
   const [likesCount, setLikesCount] = useState(0);
-  //const[lpost,setLpost]=useState(tweetPosts.length)
   const[newPost,setNewPost] = useRecoilState(isTweetPost);
   const[newProfile,setNewProfile] = useRecoilState(userProfile);
+  const [colour, setColour]=useState(false)
  useEffect(() => {
   fetchData()
   
@@ -36,8 +36,8 @@ function  fetchData()
  
   function handleLike() {
     setLikesCount(likesCount ? likesCount-1 : likesCount+1 );
-    
-  }
+    setColour(!colour)
+    }
  
   function handleUserProfile() {
     //setNewProfile()
@@ -45,7 +45,6 @@ function  fetchData()
   }
   
  function xyz (dataName)  {
-    console.log(dataName);
     setNewProfile(dataName)
     nevigate("/Profile2")
     };
@@ -63,7 +62,7 @@ function  fetchData()
                 organization : data.organization,
                 tweetText : data.tweetText,
                 tweetPic : data.tweetPic,
-              
+                
                 tweetCount : data.tweetCount,
                 retweetCount : data.retweetCount,
                 likesCount : data.likesCount,
@@ -85,7 +84,8 @@ function  fetchData()
                   
                 </span>
                 <h4>{data.handlerName}</h4>
-                <h4>{data.tweetText}</h4>
+                <br/>
+                <p>{data.tweetText}</p>
               </div>
             </div>
 
@@ -107,7 +107,9 @@ function  fetchData()
                   </span>
                   <span>
                     {data.likesCount}{likesCount}
-                    <FavoriteBorderIcon  onClick={handleLike}
+                    <AiFillHeart  onClick={handleLike} 
+                       style={colour ? {color: 'red'} : {color: 'rgb(102, 102, 192)' }} 
+                       className={style.like}
                     />
                   </span>
                   <span>

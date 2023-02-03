@@ -3,7 +3,9 @@ import style from "./CustomButton.module.css";
 function CustomButton2(props) {
   return (
     <div onClick={props.button} className={style.btn2container}>
-      <div>{props.picture}</div>
+      <div>
+        {props.picture}
+      </div>
       <div className={style.btn2text}>
         {props.text}
         <br />

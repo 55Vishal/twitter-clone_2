@@ -10,10 +10,14 @@
 
 .middleContainer{
     width: 40%;
+    border-left: 2px solid lightgray;
+    border-right: 2px solid lightgray;
+    height: fit-content;
 }
 .rightContainer{
     width:34%;
     height: 100%;
+    margin-left: 2rem;
 }
 .main::-webkit-scrollbar{
     display: none;

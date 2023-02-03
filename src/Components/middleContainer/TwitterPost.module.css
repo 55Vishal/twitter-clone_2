@@ -18,6 +18,9 @@
   justify-content: space-around;
   color: rgb(102, 102, 192);
 }
+.like{
+  font-size: 1.5rem;
+}
 .img{
 padding-left: 4rem;
 

@@ -3,20 +3,18 @@ import style from "./ProfileSection.module.css";
 import WestIcon from "@mui/icons-material/West";
 import CustomButton from "../../../Atom/Button/CustomButton";
 import { useNavigate } from "react-router-dom";
-import RightContainer2 from "../../rightContainer/RightContainer2/RightContainer2"
 import { GoLocation } from "react-icons/go";
 import { FaBirthdayCake } from "react-icons/fa";
 import { myTweets } from "../../../Recoil/Atom1/Atom";
-import { useRecoilState, useRecoilValue } from "recoil";
+import { useRecoilValue } from "recoil";
 import ChatBubbleOutlineIcon from "@mui/icons-material/ChatBubbleOutline";
 import SyncIcon from "@mui/icons-material/Sync";
-import FavoriteBorderIcon from "@mui/icons-material/FavoriteBorder";
+import { AiFillHeart} from 'react-icons/ai';
 import PollIcon from "@mui/icons-material/Poll";
 import UploadIcon from "@mui/icons-material/Upload";
 import VerifiedIcon from '@mui/icons-material/Verified';
 import { Avatar } from "@mui/material";
-// import { tweetPosts } from "../../ConstData/ConstData";
-//import { isTweetPost ,userProfile} from "../../Recoil/Atom1/Atom";
+import RightContainer2 from "../../rightContainer/RightContainer2/RightContainer2";
 
 
 
@@ -26,22 +24,19 @@ function ProfileSection() {
    const PersonalTweets=useRecoilValue(myTweets)
     console.log(PersonalTweets,"Profile Section")
   let Data = JSON.parse(localStorage.getItem("user0"));
-  // const[post,setPost]=useState(tweetPosts)
   const nevigate = useNavigate();
   const [likesCount, setLikesCount] = useState(0);
-  //const[lpost,setLpost]=useState(tweetPosts.length)
-  // const[newPost,setNewPost] = useRecoilState(isTweetPost);
-  // const[newProfile,setNewProfile] = useRecoilState(userProfiles);
+  const [colour, setColour]= useState(false)
+
   function  fetchData()
   {
     // setPost(tweetPosts)
   }
  
- 
   function handleLike() {
     setLikesCount(likesCount ? likesCount-1 : likesCount+1 );
-    
-  }
+    setColour(!colour)
+    }
  
   function handleUserProfile() {
     //setNewProfile()
@@ -72,8 +67,8 @@ function ProfileSection() {
       </div>
 
       <div className={style.textcontaint}>
-        <h4>{`${"Name:-"}${Data.Name}`}</h4>
-        <h5>{`${"@"}${Data.Name}`}</h5>
+        <h4>{Data.Name}</h4>
+        <p>{`${"@"}${Data.Name}`}</p>
         <p><GoLocation />India <span><FaBirthdayCake />{Data.Date} {Data.Month} {Data.Year}</span></p>
       <div className={style.follow}>
         <h5>Followers :- 2000</h5>
@@ -81,7 +76,12 @@ function ProfileSection() {
         </div>
       </div>
     </div>
-    <hr style={{border:'2px solid black'}} />
+    <div className={style.replies}>
+      <h4>Tweet</h4>
+      <h4>Tweet & replies</h4>
+      <h4>Media</h4>
+      <h4>Likes</h4>
+    </div>
     {PersonalTweets.map((data) => {
         return (
           <div className={style.wrapper}>
@@ -114,7 +114,8 @@ function ProfileSection() {
                   
                 </span>
                 <p>{data.handlerName}</p>
-                <h4>{data.tweetText}</h4>
+                <br/>
+                <p>{data.tweetText}</p>
               </div>
             </div>
 
@@ -136,11 +137,11 @@ function ProfileSection() {
                   </span>
                   <span>
                     {data.likesCount}{likesCount}
-                    <FavoriteBorderIcon  onClick={handleLike}
-                      // {
-                      //   ...likesCount ? (setLikesCount(likesCount+1)) : (setLikesCount(likesCount-1))
-                      // }
+                    <AiFillHeart  onClick={handleLike} 
+                       style={colour ? {color: 'red'} : {color: 'rgb(102, 102, 192)' }} 
+                       className={style.like}
                     />
+                    
                   </span>
                   <span>
                     {data.viewsCount}
@@ -152,9 +153,8 @@ function ProfileSection() {
           </div>
         );
       })}
-{/* 
-    <RightContainer2
-    /> */}
+       
+      <RightContainer2 />
     </>
   );
 }

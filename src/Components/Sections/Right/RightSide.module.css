@@ -1,6 +1,6 @@
 
 .container{
-    margin-left: 1.5rem solid black;
+    margin-left: 2rem; 
     padding: 1rem;
     display: flex;
     flex-direction: column;
@@ -14,8 +14,14 @@
     display: none;
 }
 
-.copyright{
+.copyright > a{
+    color : rgb(72, 70, 70);
     font-size: 1rem;
-    color: gray;
-    width: 21.1rem;
+    text-decoration: none;
+}
+.copyright > a:hover{
+    text-decoration: underline;
+}
+.copyright > p{
+    font-size: 0.8rem;
 }

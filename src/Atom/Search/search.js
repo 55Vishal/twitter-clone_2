@@ -10,7 +10,7 @@ const Search = () => {
           type="text"
           className={style.trend__control}
           placeholder="Search Twitter"
-          onChange={(e) => e.target.value}
+          onChange={e => e.target.value}
         />
         <div className={style.trend__icon}>
           <FaSistrix className={style.search} />

@@ -6,25 +6,22 @@ import { useSetRecoilState } from "recoil";
 import { isLoginAtom } from "../../Recoil/Atom1/Atom";
 import { useNavigate } from "react-router-dom";
 
-
 function DialogBox(props) {
-  
-  const nevigate=useNavigate()
+  const nevigate = useNavigate();
   const setLoginStatus = useSetRecoilState(isLoginAtom);
   const { onClose, selectedValue, open } = props;
   const handleClose = () => {
     onClose(selectedValue);
   };
   function handaleClick() {
-    let text = 'Do You Logout ! \nEither Ok or Cancel';
-      if(window.confirm (text) == true){
-          setLoginStatus(false);
-    alert("successfully Logout");
-    nevigate("/")
-
-      } else {
-        text = " Cancel"
-      }
+    let text = "Do You Logout ! \nEither Ok or Cancel";
+    if (window.confirm(text) == true) {
+      setLoginStatus(false);
+      alert("successfully Logout");
+      nevigate("/");
+    } else {
+      text = " Cancel";
+    }
   }
   return (
     <Dialog onClose={handleClose} open={open}>

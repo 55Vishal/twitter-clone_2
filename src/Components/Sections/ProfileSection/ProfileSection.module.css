@@ -81,6 +81,7 @@ margin-top: 3vh;
   flex-direction: column;
   gap: 1rem;
  padding: 2rem;
+ 
 }
 .container1{
   display: flex;
@@ -94,10 +95,27 @@ margin-top: 3vh;
   justify-content: space-around;
   color: rgb(102, 102, 192);
 }
+.like{
+  font-size: 1.5rem;
+}
 .img1{
 padding-left: 4rem;
 
 }
 .avatar{
   z-index: -1;
+}
+
+.replies{
+  display: flex;
+  justify-content: space-around;
+  padding-bottom: 1.5rem;
+  border-bottom: 2px solid lightgray;
+}
+
+.replies > h4:hover{
+border-bottom: 6px solid skyblue;
+border-radius: 2px;
+padding-bottom: 0.5rem;
+cursor: pointer;
 }

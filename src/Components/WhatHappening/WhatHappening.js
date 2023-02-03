@@ -6,17 +6,17 @@ import { CgSmileMouthOpen } from "react-icons/cg";
 import { BiUserCircle } from "react-icons/bi";
 import CustomButton from "../../Atom/Button/CustomButton";
 import {tweetPosts} from "../../ConstData/ConstData";
-
 import { useRecoilState } from "recoil";
-import { isTweetPost, myTweets, userProfile } from "../../Recoil/Atom1/Atom";
+import { isTweetPost, myTweets} from "../../Recoil/Atom1/Atom";
 
 function WhatHappening() {
  
   let Data = JSON.parse(localStorage.getItem("user0"));
-  const[storeArray,setStoreArray]=useState("")
+  const [storeArray,setStoreArray]=useState("")
   const [image,setImage]=useState("")
   const [loginStatus,setLoginStatus] = useRecoilState(isTweetPost);
   const [personalTweets, setPersonalTweets]= useRecoilState(myTweets)
+  const [tweetsMy, setTweetsMy]= useState("")
   const inputRef=useRef(null)
   const Icons = [
     { id: 0, icon: <FaGlobe /> },
@@ -30,7 +30,8 @@ function WhatHappening() {
   function takeTweet(e)
   {
     setStoreArray(e.target.value)
-    
+    setTweetsMy(e.target.value)
+    console.log(tweetsMy)
   }
   function handleOnClickIcon(action){
     if(action === 'pickImage'){
@@ -64,12 +65,13 @@ function WhatHappening() {
 
     }
    
-    setPersonalTweets([newObj,...personalTweets])
     tweetPosts.unshift(newObj);
     setLoginStatus(loginStatus+1);
-    setImage(" ")
+    setImage("")
+    setStoreArray("")
     inputRef.current.value("")
-    
+    setPersonalTweets([newObj,...personalTweets])
+    setTweetsMy(" ")
   }
   
   
@@ -80,18 +82,23 @@ function WhatHappening() {
         <div className={style.main}>
           <div className={style.wrapper}>
             <textarea  placeholder="What's happening?"
-             onChange={takeTweet} />
+              rows={8}
+              cols={60}
+              value={tweetsMy}
+              onChange={takeTweet} 
+             />
             
             <div className={style.privacy}>
               <FaGlobe />
               <span>Everyone can reply</span>
             </div>
              {image && 
-            <div className={style.imageWrapper}>
-            <img
-            src={image}
-            height='50%'
-            width='50%'
+             <div className={style.imageWrapper}>
+               <img
+                  src={image}
+                  height='50%'
+                  width='50%'
+                  alt="img"
 
             />
             </div>
@@ -109,17 +116,13 @@ function WhatHappening() {
                 );
               })}
             </div>
-          </div>
-          <CustomButton
-            buttonText="Tweet"
-
-            btnNext={handleNewTweet} 
-           
-            
-            customCss={style.button}
-
-          />
-          <input
+           </div>
+           <CustomButton
+             buttonText="Tweet"
+             btnNext={handleNewTweet} 
+             customCss={style.button}
+           />
+           <input
             type='file'
             hidden
             ref={inputRef}
