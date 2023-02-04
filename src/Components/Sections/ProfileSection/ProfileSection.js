@@ -70,10 +70,7 @@ function ProfileSection() {
         <h4>{Data.Name}</h4>
         <p>{`${"@"}${Data.Name}`}</p>
         <p><GoLocation />India <span><FaBirthdayCake />{Data.Date} {Data.Month} {Data.Year}</span></p>
-      <div className={style.follow}>
-        <h5>Followers :- 2000</h5>
-        <h5>Following :- 154</h5>
-        </div>
+        <p style={{marginTop:"1.5rem"}}>2000 Followers <span>154 Following</span></p>
       </div>
     </div>
     <div className={style.replies}>

@@ -1,14 +1,10 @@
 .navbarContainer{
     position: fixed;
-/*  */
-width: 39.3vw;
-border-bottom: 2px solid lightgray;
+    width: 39.3vw;
+    border-bottom: 2px solid lightgray;
 }
 .twitterPostContainer{
     margin-top: 7.2rem;
-    /* z-index: -2; */
-
-
 }
 .main{
     display: flex;

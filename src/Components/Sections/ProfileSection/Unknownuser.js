@@ -58,6 +58,10 @@ function ProfileSection() {
         <p>
           {unknownProfileData.joinedDate}
         </p>
+       <p style={{marginTop:"1.5rem"}}>
+          {`${unknownProfileData.followers} ${"Followers"}`}
+            <span>{`${unknownProfileData.followings} ${"Following"}`}</span>
+        </p>
       </div>
       <div className={style.replies}>
         <h4 onClick={tweetsUnknown}>Tweet</h4>

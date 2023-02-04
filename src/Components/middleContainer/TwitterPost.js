@@ -38,11 +38,6 @@ function  fetchData()
     setLikesCount(likesCount ? likesCount-1 : likesCount+1 );
     setColour(!colour)
     }
- 
-  function handleUserProfile() {
-    //setNewProfile()
-    alert("kkkk")
-  }
   
  function xyz (dataName)  {
     setNewProfile(dataName)
@@ -62,7 +57,6 @@ function  fetchData()
                 organization : data.organization,
                 tweetText : data.tweetText,
                 tweetPic : data.tweetPic,
-                
                 tweetCount : data.tweetCount,
                 retweetCount : data.retweetCount,
                 likesCount : data.likesCount,
@@ -80,7 +74,7 @@ function  fetchData()
 
               <div className={style.innercontainer}>
                 <span className={style.text}>
-                  <h3>{data.name}<VerifiedIcon style={{color:"blue"}}/></h3>
+                  <h3>{data.name}<VerifiedIcon style={{color:"skyblue"}}/></h3>
                   
                 </span>
                 <h4>{data.handlerName}</h4>
@@ -90,11 +84,16 @@ function  fetchData()
             </div>
 
             <div className={style.img}>
+            {data.tweetPic ? 
               <img
-                style={{ width: "30rem", height: "30rem",borderRadius:"15px" }}
-                alt="Picture"
+                style={{
+                  width: "30rem",
+                  height: "30rem",
+                  borderRadius: "15px",
+                }}
+                alt="picture"
                 src={data.tweetPic}
-              />
+              /> : <></> }
             </div>
             <div className={style.icons}>
                   <span>
