@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import style from "./Register.module.css";
 import CustomButton from "../../Atom/Button/CustomButton";
 import {
@@ -24,7 +24,7 @@ function Register() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const [data, setData] = useState([]);
+  // const [data, setData] = useState([]);
   const [incl, setIncl] = useState(0);
   const [month, setMonth] = useState("");
   const [day, setDay] = useState("");
@@ -122,14 +122,14 @@ function Register() {
     } else {
       flag = 0;
     }
-    if (Data.Month == "" || Data.Date == "" || Data.Year == "") {
+    if (Data.Month === "" || Data.Date === "" || Data.Year === "") {
       flag = 0;
       setDobError("please fill correct DOB input");
     } else {
       setDobError("");
     }
 
-    if (flag == 1) {
+    if (flag === 1) {
       var flagForLs = 0;
       for (var i = 0; i < localStorage.length; i++) {
         let k = JSON.parse(localStorage.getItem("user" + i));
@@ -138,13 +138,13 @@ function Register() {
           flagForLs = 1;
         }
       }
-      if (flagForLs == 1) {
+      if (flagForLs === 1) {
         alert("USER Email is Already Exist");
       } else {
       }
     }
 
-    if (flag == 1 && flagForLs == 0) {
+    if (flag === 1 && flagForLs === 0) {
       localStorage.setItem("user" + incl, JSON.stringify(Data));
       setIncl(incl + 1);
       alert("USER Sucessfully Registered");
